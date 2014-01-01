@@ -2,26 +2,25 @@
 <html>
 <body>
 <!-- todo: turn into handlebars files -->
-<!--<script type="text/x-handlebars" id="application">-->
-<!--<div class="main">-->
-<!--<h1>Hello World</h1>-->
-<!--{{outlet}}-->
-<!--</div>-->
-<!--</script>-->
 <script type="text/x-handlebars" id="users">
     <!--{{#link-to "users.create" class="create-btn"}} Add user {{/link-to}}-->
     <div>Users: {{usersCount}}</div>
     <ul class="users-listing">
         {{#each user in controller}}
-        <li>{{user.name}}</li>
+        <li>
+            {{#link-to "user" user}}
+            {{user.name}}
+            {{/link-to}}
+        </li>
         {{else}}
         <li>no users… :-(</li>
         {{/each}}
     </ul>
+    {{outlet}}
 </script>
 
-<!--<script type="text/x-handlebars" id="user">-->
-    <!--<div class="user-profile">-->
+<script type="text/x-handlebars" id="user">
+    <div class="user-profile">
         <!--{{#if deleteMode}}-->
         <!--<div class="confirm-box">-->
             <!--<h5>Really?</h5>-->
@@ -33,15 +32,15 @@
         <!--<button {{action "edit"}}>Edit</button>-->
         <!--<button {{action "delete"}}>Delete</button>-->
 
-        <!--<img {{bind-attr src="avatarUrl"}}>-->
-        <!--<h2>{{name}}</h2>-->
-        <!--<span>{{email}}</span>-->
-        <!--<p>{{bio}}</p>-->
-        <!--<span>Created {{formatDate creationDate}}</span>-->
-    <!--</div>-->
+        <img {{bind-attr src="avatarUrl"}}>
+        <h2>{{name}}</h2>
+        <span>{{email}}</span>
+        <p>{{bio}}</p>
+        <span>Created {{formatDate creationDate}}</span>
+    </div>
 
-    <!--{{outlet}}-->
-<!--</script>-->
+    {{outlet}}
+</script>
 
 <script src="libs/jquery-1.10.2.js"></script>
 <script src="libs/handlebars-1.1.2.js"></script>
@@ -55,5 +54,13 @@
 <script src="controllers/usersController.js"></script>
 <script src="routes/indexRoute.js"></script>
 <script src="routes/usersRoute.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.4.0/moment.min.js"></script>
+
+<script type="application/javascript">
+    Em.Handlebars.registerBoundHelper('formatDate', function(date){
+        return moment(date).fromNow();
+    });
+</script>
+
 </body>
 </html>
