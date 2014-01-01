@@ -1,18 +1,59 @@
+<!doctype html>
 <html>
 <body>
+<!-- todo: turn into handlebars files -->
+<!--<script type="text/x-handlebars" id="application">-->
+<!--<div class="main">-->
+<!--<h1>Hello World</h1>-->
+<!--{{outlet}}-->
+<!--</div>-->
+<!--</script>-->
+<script type="text/x-handlebars" id="users">
+    <!--{{#link-to "users.create" class="create-btn"}} Add user {{/link-to}}-->
+    <div>Users: {{usersCount}}</div>
+    <ul class="users-listing">
+        {{#each user in controller}}
+        <li>{{user.name}}</li>
+        {{else}}
+        <li>no users… :-(</li>
+        {{/each}}
+    </ul>
+</script>
+
+<!--<script type="text/x-handlebars" id="user">-->
+    <!--<div class="user-profile">-->
+        <!--{{#if deleteMode}}-->
+        <!--<div class="confirm-box">-->
+            <!--<h5>Really?</h5>-->
+            <!--<button {{action "confirmDelete"}}> yes </button>-->
+            <!--<button {{action "cancelDelete"}}> no </button>-->
+        <!--</div>-->
+        <!--{{/if}}-->
+
+        <!--<button {{action "edit"}}>Edit</button>-->
+        <!--<button {{action "delete"}}>Delete</button>-->
+
+        <!--<img {{bind-attr src="avatarUrl"}}>-->
+        <!--<h2>{{name}}</h2>-->
+        <!--<span>{{email}}</span>-->
+        <!--<p>{{bio}}</p>-->
+        <!--<span>Created {{formatDate creationDate}}</span>-->
+    <!--</div>-->
+
+    <!--{{outlet}}-->
+<!--</script>-->
+
 <script src="libs/jquery-1.10.2.js"></script>
 <script src="libs/handlebars-1.1.2.js"></script>
 <script src="libs/ember-1.2.0.js"></script>
 <script src="libs/ember-data-v1.0.0-beta4.js"></script>
-<script type="text/x-handlebars" id="application">
-    <div class="main">
-      <h1>Hello World</h1>
-      {{outlet}}
-    </div>
 
-</script>
 <script src="app.js"></script>
 <script src="router.js"></script>
 <script src="store.js"></script>
+<script src="models/user.js"></script>
+<script src="controllers/usersController.js"></script>
+<script src="routes/indexRoute.js"></script>
+<script src="routes/usersRoute.js"></script>
 </body>
 </html>
