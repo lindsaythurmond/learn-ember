@@ -21,16 +21,16 @@
 
 <script type="text/x-handlebars" id="user">
     <div class="user-profile">
-        <!--{{#if deleteMode}}-->
-        <!--<div class="confirm-box">-->
-        <!--<h5>Really?</h5>-->
-        <!--<button {{action "confirmDelete"}}> yes </button>-->
-        <!--<button {{action "cancelDelete"}}> no </button>-->
-        <!--</div>-->
-        <!--{{/if}}-->
+        {{#if deleteMode}}
+        <div class="confirm-box">
+            <h5>Do you really want to delete {{name}}?</h5>
+            <button {{action "confirmDelete"}}> Yes </button>
+            <button {{action "cancelDelete"}}> No </button>
+        </div>
+        {{/if}}
 
-        <!--<button {{action "edit"}}>Edit</button>-->
-        <!--<button {{action "delete"}}>Delete</button>-->
+        <button {{action "edit"}}>Edit</button>
+        <button {{action "delete"}}>Delete</button>
 
         <img {{bind-attr src="avatarUrl"}}>
         <h2>{{name}}</h2>
@@ -39,7 +39,6 @@
         <p>{{bio}}</p>
         <span>Created {{formatDate creationDate}}</span>
     </div>
-
     {{outlet}}
 </script>
 
@@ -57,6 +56,7 @@
         <label>User short bio</label>
         {{textarea value=bio}}
     </div>
+    <button {{action "save"}}> Save </button>
 </script>
 
 <script src="libs/jquery-1.10.2.js"></script>
