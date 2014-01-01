@@ -23,9 +23,9 @@
     <div class="user-profile">
         <!--{{#if deleteMode}}-->
         <!--<div class="confirm-box">-->
-            <!--<h5>Really?</h5>-->
-            <!--<button {{action "confirmDelete"}}> yes </button>-->
-            <!--<button {{action "cancelDelete"}}> no </button>-->
+        <!--<h5>Really?</h5>-->
+        <!--<button {{action "confirmDelete"}}> yes </button>-->
+        <!--<button {{action "cancelDelete"}}> no </button>-->
         <!--</div>-->
         <!--{{/if}}-->
 
@@ -35,11 +35,28 @@
         <img {{bind-attr src="avatarUrl"}}>
         <h2>{{name}}</h2>
         <span>{{email}}</span>
+
         <p>{{bio}}</p>
         <span>Created {{formatDate creationDate}}</span>
     </div>
 
     {{outlet}}
+</script>
+
+<script type="text/x-handlebars" id="user/edit">
+    <div class="user-edit">
+        <label>Choose user avatar</label>
+        {{input value=avatarUrl}}
+
+        <label>User name</label>
+        {{input value=name}}
+
+        <label>User email</label>
+        {{input value=email}}
+
+        <label>User short bio</label>
+        {{textarea value=bio}}
+    </div>
 </script>
 
 <script src="libs/jquery-1.10.2.js"></script>
@@ -51,13 +68,18 @@
 <script src="router.js"></script>
 <script src="store.js"></script>
 <script src="models/user.js"></script>
+<!-- controllers -->
 <script src="controllers/usersController.js"></script>
+<script src="controllers/userController.js"></script>
+<!-- routes -->
 <script src="routes/indexRoute.js"></script>
 <script src="routes/usersRoute.js"></script>
+<script src="routes/userRoute.js"></script>
+<script src="routes/userEditRoute.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.4.0/moment.min.js"></script>
 
 <script type="application/javascript">
-    Em.Handlebars.registerBoundHelper('formatDate', function(date){
+    Em.Handlebars.registerBoundHelper('formatDate', function (date) {
         return moment(date).fromNow();
     });
 </script>
