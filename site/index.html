@@ -59,10 +59,13 @@
     <button {{action "save"}}> Save </button>
 </script>
 
+<!-- downloaded libs -->
 <script src="libs/jquery-1.10.2.js"></script>
 <script src="libs/handlebars-1.1.2.js"></script>
 <script src="libs/ember-1.2.0.js"></script>
 <script src="libs/ember-data-v1.0.0-beta4.js"></script>
+<script src="libs/localstorage_adapter.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.4.0/moment.min.js"></script>
 
 <script src="app.js"></script>
 <script src="router.js"></script>
@@ -78,7 +81,6 @@
 <script src="routes/userRoute.js"></script>
 <script src="routes/userEditRoute.js"></script>
 <script src="routes/usersCreateRoute.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.4.0/moment.min.js"></script>
 
 <script type="application/javascript">
     Em.Handlebars.registerBoundHelper('formatDate', function (date) {
