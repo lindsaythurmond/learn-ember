@@ -1,9 +1,9 @@
 <!doctype html>
 <html>
 <body>
-<!-- todo: turn into handlebars files -->
+<!-- todo: turn into handlebars (*.hbs) files -->
 <script type="text/x-handlebars" id="users">
-    <!--{{#link-to "users.create" class="create-btn"}} Add user {{/link-to}}-->
+    {{#link-to "users.create" class="create-btn"}} Add user {{/link-to}}
     <div>Users: {{usersCount}}</div>
     <ul class="users-listing">
         {{#each user in controller}}
@@ -71,11 +71,13 @@
 <!-- controllers -->
 <script src="controllers/usersController.js"></script>
 <script src="controllers/userController.js"></script>
+<script src="controllers/usersCreateController.js"></script>
 <!-- routes -->
 <script src="routes/indexRoute.js"></script>
 <script src="routes/usersRoute.js"></script>
 <script src="routes/userRoute.js"></script>
 <script src="routes/userEditRoute.js"></script>
+<script src="routes/usersCreateRoute.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.4.0/moment.min.js"></script>
 
 <script type="application/javascript">
